@@ -1,0 +1,81 @@
+skiboot (5.6.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/watch : fixed to handle -rc
+  * d/control : fixed accents in my name
+  * d/patches/uninitialized_uses.patch
+    d/patches/direct-systemd-to-always-restart-opal-prd.patch : removed as
+    not needed anymore
+  * Logging improved upstream and in the package :
+    - d/patches/implement-basic-heuristic-for-hservice_puts-loglevels.patch :
+      classify HBRT output
+    - d/opal-prd.logrotate
+    - d/rsyslog/opal-prd.conf
+    - d/opal-prd.install and d/opal-prd.dirs
+
+ -- Frédéric Bonnard <frediz@linux.vnet.ibm.com>  Thu, 01 Jun 2017 11:18:17 +0000
+
+skiboot (5.4.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * d/patches/fix-hardening-for-opal-gard.patch removed as it's applied upstream
+  * d/control : 
+    - added Depends on lsb-base for opal-prd.init
+    - added ppc64 arch
+  * d/rules :
+    - proper clean is almost done by upstream, override_dh_auto_clean stripped
+    - enabled tests where they make sense
+  * d/patches/fix-distclean-for-gard-and-xscom-utils.patch : remaining cleanup
+    to be forwarded upstream
+  * d/opal-prd.socket : removed
+    d/opal-prd.service : linked to upstream service file
+    we now use service file from upstream that doesn't use systemd's socket
+    : opal-prd already does all the socket handling.
+  * d/patches/opal-prd-service-file-improvements.patch : added to handle man
+    page and /etc/default/opal-prd properly (Closes: LP : #1549098)
+  * Use upstream manpage :
+    d/opal-prd.8 : fixes were applied upstream
+    d/opal-prd.manpages : use upstream manpage 
+  * d/patches/direct-systemd-to-always-restart-opal-prd.patch : applying
+    upstream patch in advance to restart opal-prd irrespective of why it
+    stopped.  (Closes: LP : #1671019)
+
+ -- Frederic Bonnard <frediz@linux.vnet.ibm.com>  Wed, 08 Mar 2017 16:06:12 +0000
+
+skiboot (5.3.3-1) unstable; urgency=medium
+
+  * New upstream release
+  * Build and distribute getscom, putscom, pflash. Created basic manpages
+    (Closes: #836405))
+  * Changed d/opal-prd.docs, d/opal-utils.docs because README got renamed to
+    README
+
+ -- Frederic Bonnard <frediz@linux.vnet.ibm.com>  Tue, 06 Sep 2016 10:11:25 +0200
+
+skiboot (5.2.4-2) unstable; urgency=medium
+
+  * Forced no-pie for Ubuntu 16.10 as previous change was not enough : in 16.10
+    gcc's default change to build PIE by default.
+
+ -- Frederic Bonnard <frediz@linux.vnet.ibm.com>  Mon, 18 Jul 2016 15:52:41 +0200
+
+skiboot (5.2.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * Disabled PIE build as this makes opal-prd segfault and there is no
+    possibility to improve that on the code side soon.
+  * Removed typos patch as it was partially applied in new version.
+
+ -- Frederic Bonnard <frediz@linux.vnet.ibm.com>  Tue, 12 Jul 2016 17:54:46 +0200
+
+skiboot (5.2.2-2) unstable; urgency=medium
+
+  * Fixed d/copyright 3 files
+
+ -- Frederic Bonnard <frediz@linux.vnet.ibm.com>  Mon, 13 Jun 2016 11:49:19 +0200
+
+skiboot (5.2.2-1) unstable; urgency=medium
+
+  * Import from Ubuntu and update to upstream release  (Closes: #797987)
+
+ -- Frederic Bonnard <frediz@linux.vnet.ibm.com>  Thu, 02 Jun 2016 15:34:47 +0200

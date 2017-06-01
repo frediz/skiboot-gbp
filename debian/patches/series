@@ -1,0 +1,3 @@
+opal-prd-service-file-improvements.patch
+fix-distclean-for-gard-and-xscom-utils.patch
+implement-basic-heuristic-for-hservice_puts-loglevels.patch
