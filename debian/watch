@@ -1,0 +1,3 @@
+version=3
+opts=uversionmangle=s/-(rc|m)/~$1/ \
+  https://github.com/open-power/skiboot/tags .*/skiboot-(\d\S*)\.tar\.gz

@@ -1,0 +1,24 @@
+Source: skiboot
+Section: admin
+Priority: optional
+Maintainer: Frederic Bonnard <frediz@linux.vnet.ibm.com>
+Build-Depends: debhelper (>= 9), dh-systemd
+Standards-Version: 3.9.8
+Homepage: http://github.com/open-power/skiboot/
+
+Package: opal-prd
+Architecture: ppc64el ppc64
+Depends: ${misc:Depends}, ${shlibs:Depends}, lsb-base
+Description: OPAL Processor Recovery Diagnostics daemon
+ This package provides a daemon to load and run the OpenPower firmware's
+ Processor Recovery Diagnostics binary. This is responsible for runtime
+ maintenance of Power hardware.
+
+Package: opal-utils
+Architecture: ppc64el ppc64
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: OPAL firmware utilities
+ This package contains utility programs.
+ .
+ The 'gard' utility, can read, parse and clear hardware gard partitions on
+ OpenPower platforms.
